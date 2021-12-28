@@ -4,11 +4,98 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="robots" content="index, follow" />
-        <meta name="description" content="" />
-        <meta name="keywords" content="" />
         <meta name="author" content="ChengTze" />
-        <title></title>
+        <title>My Website</title>
+        <link rel="stylesheet" href="style.css" />
     </head>
-    <body></body>
+    <body>
+        <!-- header -->
+        <header class="flex-container">
+            <a href="#">My Website</a>
+            <nav id="nav">
+                <ul class="flex-container">
+                    <li><a href="#">Item1</a></li>
+                    <li><a href="#">Item2</a></li>
+                    <li><a href="#">Item3</a></li>
+                    <li><a href="#">Item4</a></li>
+                </ul>
+            </nav>
+            <img
+                id="hamburger"
+                onclick="dropDown()"
+                src="https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/menu-alt-1024.png"
+            />
+        </header>
+        <nav id="dropMenu" class="hideMenu">
+            <ul>
+                <li><a href="#">Item1</a></li>
+                <li><a href="#">Item2</a></li>
+                <li><a href="#">Item3</a></li>
+                <li><a href="#">Item4</a></li>
+            </ul>
+        </nav>
+        <!-- banner -->
+        <div class="banner flex-container">
+            <h1>Welcome to MyHome</h1>
+        </div>
+        <!-- main -->
+        <main class="flex-container">
+            <div class="w-container flex-container">
+                <figure>
+                    <img
+                        src="https://images.unsplash.com/photo-1434025697302-54853b8da166?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXw4NzQwNzd8fGVufDB8fHx8&auto=format&fit=crop&w=1600&q=60"
+                    />
+                    <figcaption>Old village</figcaption>
+                </figure>
+                <figure>
+                    <img
+                        src="https://images.unsplash.com/photo-1493664791217-9b0be8ec8eca?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8Mnw4NzQwNzd8fGVufDB8fHx8&auto=format&fit=crop&w=1600&q=60"
+                    />
+                    <figcaption>Abandoned cabin</figcaption>
+                </figure>
+                <figure>
+                    <img
+                        src="https://images.unsplash.com/photo-1433763472432-7970c9ba5349?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8M3w4NzQwNzd8fGVufDB8fHx8&auto=format&fit=crop&w=1600&q=60"
+                    />
+                    <figcaption>White houses</figcaption>
+                </figure>
+                <figure>
+                    <img
+                        src="https://images.unsplash.com/photo-1434384595115-e67e99090d7e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NHw4NzQwNzd8fGVufDB8fHx8&auto=format&fit=crop&w=1600&q=60"
+                    />
+                    <figcaption>White house</figcaption>
+                </figure>
+                <figure>
+                    <img
+                        src="https://images.unsplash.com/photo-1431507004979-f985dd636d88?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NXw4NzQwNzd8fGVufDB8fHx8&auto=format&fit=crop&w=1600&q=60"
+                    />
+                    <figcaption>Dog in a meadow</figcaption>
+                </figure>
+                <figure>
+                    <img
+                        src="https://images.unsplash.com/photo-1439556788289-2e118cb64de6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8Nnw4NzQwNzd8fGVufDB8fHx8&auto=format&fit=crop&w=1600&q=60"
+                    />
+                    <figcaption>Black house</figcaption>
+                </figure>
+                <figure>
+                    <img
+                        src="https://images.unsplash.com/photo-1414187976819-32a4deaae820?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8OHw4NzQwNzd8fGVufDB8fHx8&auto=format&fit=crop&w=1600&q=60"
+                    />
+                    <figcaption>Scenic village</figcaption>
+                </figure>
+                <figure>
+                    <img
+                        src="https://images.unsplash.com/photo-1479968456879-a03be9b8c82f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8OXw4NzQwNzd8fGVufDB8fHx8&auto=format&fit=crop&w=1600&q=60"
+                    />
+                    <figcaption>Mountain countryside</figcaption>
+                </figure>
+            </div>
+        </main>
+        <script>
+            function dropDown() {
+                let dropMenu = document.getElementById("dropMenu");
+                dropMenu.classList.toggle("showMenu");
+            }
+        </script>
+    </body>
 </html>
