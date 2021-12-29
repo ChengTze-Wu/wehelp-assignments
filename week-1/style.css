@@ -34,11 +34,17 @@ header {
 nav li {
     margin-left: 24px;
 }
-img#hamburger {
-    width: 28px;
+img#hamburger,
+img#cancel {
+    width: 32px;
     height: auto;
     display: none;
     cursor: pointer;
+}
+img#hamburger:hover,
+img#cancel:hover,
+a:hover {
+    opacity: 0.5;
 }
 nav#dropMenu {
     width: 100%;
@@ -46,15 +52,13 @@ nav#dropMenu {
     right: 0;
     background-color: white;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 6px -6px #777;
 }
 nav#dropMenu li {
     margin: 8px 16px;
 }
-.hideMenu {
+.hide {
     display: none;
-}
-.showMenu {
-    display: block;
 }
 /* banner */
 .banner {
@@ -119,6 +123,9 @@ figure figcaption {
         display: none;
     }
     img#hamburger {
+        display: block;
+    }
+    .show {
         display: block;
     }
 }

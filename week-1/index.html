@@ -26,12 +26,12 @@
                 src="./images/hamburger.png"
             />
         </header>
-        <nav id="dropMenu" class="hideMenu">
+        <nav id="dropMenu" class="hide">
             <ul>
-                <li><a href="#">Item1</a></li>
-                <li><a href="#">Item2</a></li>
-                <li><a href="#">Item3</a></li>
-                <li><a href="#">Item4</a></li>
+                <a href="#"><li>Item1</li></a>
+                <a href="#"><li>Item2</li></a>
+                <a href="#"><li>Item3</li></a>
+                <a href="#"><li>Item4</li></a>
             </ul>
         </nav>
         <!-- banner -->
@@ -78,7 +78,13 @@
         <script>
             function dropDown() {
                 let dropMenu = document.getElementById("dropMenu");
-                dropMenu.classList.toggle("showMenu");
+                let hamburger = document.getElementById("hamburger");
+                dropMenu.classList.toggle("show");
+                if (dropMenu.classList.contains("show")) {
+                    hamburger.src = "./images/cancel.png";
+                } else {
+                    hamburger.src = "./images/hamburger.png";
+                }
             }
         </script>
     </body>
