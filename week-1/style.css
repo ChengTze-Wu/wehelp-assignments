@@ -43,7 +43,8 @@ img#cancel {
 }
 img#hamburger:hover,
 img#cancel:hover,
-a:hover {
+a:hover,
+a li:hover {
     opacity: 0.5;
 }
 nav#dropMenu {
