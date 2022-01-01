@@ -10,80 +10,118 @@
     </head>
     <body>
         <!-- header -->
-        <header class="flex-container">
-            <a href="#">My Website</a>
-            <nav id="nav">
-                <ul class="flex-container">
-                    <li><a href="#">Item1</a></li>
-                    <li><a href="#">Item2</a></li>
-                    <li><a href="#">Item3</a></li>
-                    <li><a href="#">Item4</a></li>
+        <header class="hd flex flex--msb flex--cc">
+            <a class="hd__title" href="#">My Website</a>
+            <nav class="menu">
+                <ul class="flex flex--gap20">
+                    <li class="menu__item"><a href="#">Item1</a></li>
+                    <li class="menu__item"><a href="#">Item2</a></li>
+                    <li class="menu__item"><a href="#">Item3</a></li>
+                    <li class="menu__item"><a href="#">Item4</a></li>
                 </ul>
             </nav>
+
+            <!-- hamburger -->
             <img
+                class="hamburger"
                 id="hamburger"
                 onclick="dropDown()"
                 src="./images/hamburger.png"
             />
         </header>
-        <nav id="dropMenu" class="hide">
+        <!-- dropMenu -->
+        <nav id="dMenu" class="dMenu hide">
             <ul>
-                <a href="#"><li>Item1</li></a>
-                <a href="#"><li>Item2</li></a>
-                <a href="#"><li>Item3</li></a>
-                <a href="#"><li>Item4</li></a>
+                <li class="dMenu__item"><a href="#">Item1</a></li>
+                <li class="dMenu__item"><a href="#">Item2</a></li>
+                <li class="dMenu__item"><a href="#">Item3</a></li>
+                <li class="dMenu__item"><a href="#">Item4</a></li>
             </ul>
         </nav>
         <!-- banner -->
-        <div class="banner flex-container">
-            <h1>Welcome to MyHome</h1>
+        <div class="banner flex flex--mc flex--cc">
+            <h1 class="banner__title">Welcome to MyHome</h1>
         </div>
         <!-- main -->
-        <main class="flex-container">
-            <div class="w-container flex-container">
-                <figure>
+        <main class="main flex flex--mc">
+            <div class="album flex flex--wrap flex--gap20">
+                <figure class="album__item">
                     <img src="./images/01.jpeg" />
-                    <figcaption>Old village</figcaption>
+                    <figcaption class="flex flex--mc flex--cc">
+                        Old village
+                    </figcaption>
                 </figure>
-                <figure>
+                <figure class="album__item">
                     <img src="./images/02.jpeg" />
-                    <figcaption>Abandoned cabin</figcaption>
+                    <figcaption class="flex flex--mc flex--cc">
+                        Abandoned cabin
+                    </figcaption>
                 </figure>
-                <figure>
+                <figure class="album__item">
                     <img src="./images/03.jpeg" />
-                    <figcaption>White houses</figcaption>
+                    <figcaption class="flex flex--mc flex--cc">
+                        White houses
+                    </figcaption>
                 </figure>
-                <figure>
+                <figure class="album__item">
                     <img src="./images/04.jpeg" />
-                    <figcaption>White house</figcaption>
+                    <figcaption class="flex flex--mc flex--cc">
+                        White house
+                    </figcaption>
                 </figure>
-                <figure>
+                <figure class="album__item">
                     <img src="./images/05.jpeg" />
-                    <figcaption>Dog in a meadow</figcaption>
+                    <figcaption class="flex flex--mc flex--cc">
+                        Dog in a meadow
+                    </figcaption>
                 </figure>
-                <figure>
+                <figure class="album__item">
                     <img src="./images/06.jpeg" />
-                    <figcaption>Black house</figcaption>
+                    <figcaption class="flex flex--mc flex--cc">
+                        Black house
+                    </figcaption>
                 </figure>
-                <figure>
+                <figure class="album__item">
                     <img src="./images/07.jpeg" />
-                    <figcaption>Scenic village</figcaption>
+                    <figcaption class="flex flex--mc flex--cc">
+                        Scenic village
+                    </figcaption>
                 </figure>
-                <figure>
+                <figure class="album__item">
                     <img src="./images/08.jpeg" />
-                    <figcaption>Mountain countryside</figcaption>
+                    <figcaption class="flex flex--mc flex--cc">
+                        Mountain countryside
+                    </figcaption>
                 </figure>
             </div>
         </main>
         <script>
+            let dMenu = document.getElementById("dMenu");
+            let hamburger = document.getElementById("hamburger");
+
+            window.onresize = resize;
+
             function dropDown() {
-                let dropMenu = document.getElementById("dropMenu");
-                let hamburger = document.getElementById("hamburger");
-                dropMenu.classList.toggle("show");
-                if (dropMenu.classList.contains("show")) {
-                    hamburger.src = "./images/cancel.png";
-                } else {
+                if (dMenu.classList.contains("show")) {
+                    dMenu.classList.add("hide");
+                    dMenu.classList.remove("show");
                     hamburger.src = "./images/hamburger.png";
+                } else if (dMenu.classList.contains("hide")) {
+                    dMenu.classList.add("show");
+                    dMenu.classList.remove("hide");
+                    hamburger.src = "./images/cancel.png";
+                }
+            }
+
+            function resize() {
+                if (document.body.clientWidth > 600) {
+                    dMenu.classList.remove("show");
+                    dMenu.classList.add("hide");
+                    if (dMenu.classList.contains("show")) {
+                        hamburger.src = "./images/cancel.png";
+                    } else if (dMenu.classList.contains("hide")) {
+                        hamburger.src = "./images/hamburger.png";
+                    }
                 }
             }
         </script>

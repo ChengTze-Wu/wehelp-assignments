@@ -1,4 +1,4 @@
-/* CSS Reset */
+/* CSS Reset, Base */
 *,
 *::before,
 *::after {
@@ -17,116 +17,110 @@ a:visited {
     text-decoration: none;
     color: black;
 }
-
-/* main sheet */
-/* general */
-.flex-container {
+a:hover {
+    opacity: 0.5;
+}
+/* general function */
+.hide {
+    display: none !important;
+}
+.show {
+    display: block !important;
+}
+.flex {
     display: flex;
 }
-
-/* header */
-header {
-    height: 44px;
-    margin: 0 16px;
+.flex--mc {
+    justify-content: center;
+}
+.flex--msb {
     justify-content: space-between;
+}
+.flex--cc {
     align-items: center;
 }
-nav li {
-    margin-left: 24px;
+.flex--wrap {
+    flex-wrap: wrap;
 }
-img#hamburger,
-img#cancel {
+.flex--gap20 {
+    gap: 20px;
+}
+/* main sheet */
+/* header */
+.hd {
+    height: 44px;
+    margin: 0 20px;
+}
+.hamburger {
     width: 32px;
     height: auto;
     display: none;
     cursor: pointer;
 }
-img#hamburger:hover,
-img#cancel:hover,
-a:hover,
-a li:hover {
+.hamburger:hover {
     opacity: 0.5;
 }
-nav#dropMenu {
-    width: 100%;
+/* dropMenu */
+.dMenu {
+    width: 100vw;
     position: absolute;
-    right: 0;
     background-color: white;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     box-shadow: 0 6px 6px -6px #777;
 }
-nav#dropMenu li {
+.dMenu__item {
     margin: 8px 16px;
 }
-.hide {
-    display: none;
+.dMenu__item > a {
+    display: block;
 }
 /* banner */
 .banner {
     height: 300px;
     background-color: rgb(222, 238, 248);
-    justify-content: center;
-    align-items: center;
 }
-.banner h1 {
+.banner__title {
     font-size: 2rem;
 }
-
 /* main */
-main {
-    justify-content: center;
-}
-.w-container {
+.album {
     width: 1200px;
     margin-top: 44px;
-    flex-wrap: wrap;
-    justify-content: space-between;
 }
-figure {
-    width: 276px;
+.album__item {
+    width: 285px;
     height: 220px;
-    margin-bottom: 32px;
     background-color: rgb(222, 238, 248);
 }
-figure img {
+.album__item > img {
     display: block;
     width: 100%;
     height: 80%;
     object-fit: cover;
     object-position: 50% 70%;
 }
-figure figcaption {
+.album__item > figcaption {
     height: 20%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
-
 @media screen and (max-width: 1200px) {
-    .w-container {
+    .album {
         width: 90%;
     }
-    figure {
-        width: 48%;
-        height: 23.5%;
+    .album__item {
+        width: 45%;
+        height: 35vw;
+        flex-grow: 1;
     }
 }
-
 @media screen and (max-width: 600px) {
-    .w-container {
-        width: 90%;
-    }
-    figure {
-        width: 100%;
-        height: 11.5%;
-    }
-    #nav {
+    .menu {
         display: none;
     }
-    img#hamburger {
+    .hamburger {
         display: block;
     }
-    .show {
-        display: block;
+    .album__item {
+        width: 100%;
+        height: 72vw;
     }
 }
