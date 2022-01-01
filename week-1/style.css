@@ -62,7 +62,7 @@ a:hover {
 }
 /* dropMenu */
 .dMenu {
-    width: 100vw;
+    width: 100%;
     position: absolute;
     background-color: white;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
