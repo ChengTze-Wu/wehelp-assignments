@@ -24,7 +24,6 @@
             <!-- hamburger -->
             <img
                 class="hamburger"
-                id="hamburger"
                 onclick="dropDown()"
                 src="./images/hamburger.png"
             />
@@ -97,7 +96,6 @@
         </main>
         <script>
             let dMenu = document.getElementById("dMenu");
-            let hamburger = document.getElementById("hamburger");
 
             window.onresize = resize;
 
@@ -105,11 +103,9 @@
                 if (dMenu.classList.contains("show")) {
                     dMenu.classList.add("hide");
                     dMenu.classList.remove("show");
-                    hamburger.src = "./images/hamburger.png";
                 } else if (dMenu.classList.contains("hide")) {
                     dMenu.classList.add("show");
                     dMenu.classList.remove("hide");
-                    hamburger.src = "./images/cancel.png";
                 }
             }
 
@@ -117,11 +113,6 @@
                 if (document.body.clientWidth > 600) {
                     dMenu.classList.remove("show");
                     dMenu.classList.add("hide");
-                    if (dMenu.classList.contains("show")) {
-                        hamburger.src = "./images/cancel.png";
-                    } else if (dMenu.classList.contains("hide")) {
-                        hamburger.src = "./images/hamburger.png";
-                    }
                 }
             }
         </script>

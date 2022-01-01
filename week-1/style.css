@@ -88,8 +88,9 @@ a:hover {
     margin-top: 44px;
 }
 .album__item {
-    width: 285px;
+    width: 280px;
     height: 220px;
+    flex-grow: 1;
     background-color: rgb(222, 238, 248);
 }
 .album__item > img {
@@ -109,7 +110,6 @@ a:hover {
     .album__item {
         width: 45%;
         height: 35vw;
-        flex-grow: 1;
     }
 }
 @media screen and (max-width: 600px) {
