@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="ChengTze" />
+        <title>My Website</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="./JsonData.js"></script>
+    </head>
+    <body>
+        <!-- header -->
+        <header class="hd flex flex--msb flex--cc">
+            <a class="hd__title" href="#">My Website</a>
+            <nav class="menu">
+                <ul class="flex flex--gap20">
+                    <li class="menu__item"><a href="#">Item1</a></li>
+                    <li class="menu__item"><a href="#">Item2</a></li>
+                    <li class="menu__item"><a href="#">Item3</a></li>
+                    <li class="menu__item"><a href="#">Item4</a></li>
+                </ul>
+            </nav>
+
+            <!-- hamburger -->
+            <img
+                class="hamburger"
+                onclick="dropDown()"
+                src="./images/hamburger.png"
+            />
+        </header>
+        <!-- dropMenu -->
+        <nav id="dMenu" class="dMenu hide">
+            <ul>
+                <li class="dMenu__item"><a href="#">Item1</a></li>
+                <li class="dMenu__item"><a href="#">Item2</a></li>
+                <li class="dMenu__item"><a href="#">Item3</a></li>
+                <li class="dMenu__item"><a href="#">Item4</a></li>
+            </ul>
+        </nav>
+        <!-- banner -->
+        <div class="banner flex flex--mc flex--cc">
+            <h1 class="banner__title">Welcome to MyHome</h1>
+        </div>
+        <!-- main -->
+        <main class="main flex flex--dc flex--cc">
+            <div class="album flex flex--wrap flex--gap20"></div>
+            <button class="load_more_btn">load more</button>
+        </main>
+        <!-- footer -->
+        <footer class="footer"></footer>
+
+        <script>
+            // DropDown Menu
+            window.onresize = resize;
+            let hamburger = document.querySelector("hamburger");
+            function dropDown() {
+                if (dMenu.classList.contains("show")) {
+                    dMenu.classList.add("hide");
+                    dMenu.classList.remove("show");
+                } else if (dMenu.classList.contains("hide")) {
+                    dMenu.classList.add("show");
+                    dMenu.classList.remove("hide");
+                }
+            }
+            function resize() {
+                if (document.body.clientWidth > 600) {
+                    dMenu.classList.remove("show");
+                    dMenu.classList.add("hide");
+                }
+            }
+
+            // Album
+            function display_album_data(img, text) {
+                let album = document.querySelector(".album");
+                let album__item = document.createElement("figure");
+                let album__item__img = document.createElement("img");
+                let album__item__text = document.createElement("figcaption");
+
+                album__item__img.src = img;
+                album__item.appendChild(album__item__img);
+
+                let site_textNode = document.createTextNode(text);
+                album__item__text.className =
+                    "album__item__text flex flex--mc flex--cc";
+                album__item__text.appendChild(site_textNode);
+                album__item.appendChild(album__item__text);
+
+                album__item.className = "album__item";
+                album.appendChild(album__item);
+            }
+
+            function loadData(url, nth_show_item) {
+                jsonData.getJson(url).then((result) => {
+                    let results = result.slice(
+                        // control nth_item
+                        nth_show_item,
+                        nth_show_item + 8
+                    );
+                    results.forEach((site) => {
+                        let site_data = jsonData.analyzeData(site);
+                        display_album_data(site_data[1], site_data[0]);
+                    });
+                });
+            }
+
+            let jsonData = new JsonData();
+            let load_more = document.querySelector(".load_more_btn");
+            let nth_show_item = 0;
+            let url =
+                "https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment.json";
+            loadData(url, nth_show_item);
+            load_more.addEventListener("click", (e) => {
+                nth_show_item += 8;
+                loadData(url, nth_show_item);
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,145 @@
+/* CSS Reset, Base */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html {
+    font-size: 20px;
+}
+ul {
+    list-style: none;
+}
+a,
+a:visited {
+    text-decoration: none;
+    color: black;
+}
+a:hover {
+    opacity: 0.5;
+}
+/* general function */
+.hide {
+    display: none !important;
+}
+.show {
+    display: block !important;
+}
+.flex {
+    display: flex;
+}
+.flex--dc {
+    flex-direction: column;
+}
+.flex--mc {
+    justify-content: center;
+}
+.flex--msb {
+    justify-content: space-between;
+}
+.flex--cc {
+    align-items: center;
+}
+.flex--wrap {
+    flex-wrap: wrap;
+}
+.flex--gap20 {
+    gap: 20px;
+}
+/* main sheet */
+/* header */
+.hd {
+    height: 44px;
+    margin: 0 20px;
+}
+.hamburger {
+    width: 32px;
+    height: auto;
+    display: none;
+    cursor: pointer;
+}
+.hamburger:hover {
+    opacity: 0.5;
+}
+/* dropMenu */
+.dMenu {
+    width: 100%;
+    position: absolute;
+    background-color: white;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 6px -6px #777;
+}
+.dMenu__item {
+    margin: 8px 16px;
+}
+.dMenu__item > a {
+    display: block;
+}
+/* banner */
+.banner {
+    height: 300px;
+    background-color: rgb(222, 238, 248);
+}
+.banner__title {
+    font-size: 2rem;
+}
+/* main */
+.album {
+    width: 1200px;
+    margin-top: 44px;
+}
+.album__item {
+    width: 280px;
+    height: 220px;
+    background-color: rgb(222, 238, 248);
+}
+.album__item > img {
+    display: block;
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+    object-position: 50% 70%;
+}
+.album__item > figcaption {
+    height: 20%;
+}
+
+.album__item__text {
+    font-size: 0.8rem;
+}
+.load_more_btn {
+    margin-top: 20px;
+    width: 150px;
+    height: 44px;
+    font-size: 0.8rem;
+}
+
+/* footer */
+.footer {
+    height: 44px;
+}
+
+@media screen and (max-width: 1200px) {
+    .album {
+        width: 90%;
+    }
+    .album__item {
+        width: 45%;
+        height: 35vw;
+        flex-grow: 1;
+    }
+}
+@media screen and (max-width: 600px) {
+    .menu {
+        display: none;
+    }
+    .hamburger {
+        display: block;
+    }
+    .album__item {
+        width: 100%;
+        height: 72vw;
+    }
+}
