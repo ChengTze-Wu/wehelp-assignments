@@ -1,0 +1,11 @@
+{% extends "base.html" %} {% block content %}
+<main class="main grid--center flex--vertical">
+    <span class="error_icon material-icons"> cancel </span>
+    <h1 class="error_title">登入失敗</h1>
+    <p>{{ message }}</p>
+    <a class="flex--center btn error_btn" href="{{url_for('index')}}">
+        <span class="material-icons"> keyboard_return </span>
+        返回登入頁面
+    </a>
+</main>
+{% endblock %}
