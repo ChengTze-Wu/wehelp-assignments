@@ -3,7 +3,6 @@ from flask import request
 from flask import render_template
 from flask import session
 from flask import redirect, url_for
-from numpy import ushort
 
 app = Flask(__name__)
 
