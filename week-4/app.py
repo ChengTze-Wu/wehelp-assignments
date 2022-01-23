@@ -3,6 +3,7 @@ from flask import request
 from flask import render_template
 from flask import session
 from flask import redirect, url_for
+from numpy import ushort
 
 app = Flask(__name__)
 
@@ -10,22 +11,25 @@ app.secret_key = "jf8932fhuewifnd9o"
 
 @app.route("/", methods=['GET'])
 def index():
-    session["username"] = "test"
-    session["password"] = "test"
     return render_template("signin.html")
 
 @app.route("/signin/", methods=['POST'])
-def verify():
+def signin():
     if request.method == 'POST':
         username = request.form["username"]
         password = request.form["password"]
         if username == "" or password == "":
             return redirect(url_for("error", message="請輸入帳號、密碼"))
-        elif (username in session["username"]) and (password in session["password"]):
-            session["signin_state"] = 1
+        elif verify_account(username, password):
             return redirect(url_for("member"))
         else:
             return redirect(url_for("error", message="帳號、或密碼輸入錯誤"))
+
+def verify_account(username, password):
+    if username == "test" and password == "test":
+        session["signin_state"] = 1
+        return True
+
 
 @app.route("/signout/", methods=['GET'])
 def signout():
