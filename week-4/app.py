@@ -20,13 +20,13 @@ def signin():
         if username == "" or password == "":
             return redirect(url_for("error", message="請輸入帳號、密碼"))
         elif verify_account(username, password):
+            session["signin_state"] = 1
             return redirect(url_for("member"))
         else:
             return redirect(url_for("error", message="帳號、或密碼輸入錯誤"))
 
 def verify_account(username, password):
     if username == "test" and password == "test":
-        session["signin_state"] = 1
         return True
 
 
