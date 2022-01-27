@@ -14,7 +14,7 @@
 * 3-7
 ![assignment3-7](./images/3-7.png)
 # 要求四:SQL Aggregate Functions
-*已經過update指令更新follower_count欄位資料*
+**已經過update指令更新follower_count欄位資料**
 * 4-1
 ![assignment4-1](./images/4-1.png)
 * 4-2
