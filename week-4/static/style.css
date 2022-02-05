@@ -55,6 +55,44 @@ body {
 .main {
     margin-top: 100px;
 }
+/* signup page */
+.signup_frame {
+    grid-template-rows: 1fr 4fr 1fr 1fr;
+    width: 400px;
+    height: 600px;
+    border: 2px solid var(--main-color);
+    border-radius: 20px;
+}
+.signup_frame__title {
+    color: var(--main-color);
+}
+.signup_frame__input {
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-row-gap: 10px;
+}
+.signup_frame__input__item {
+    height: 50px;
+    padding-left: 10px;
+    background-color: gainsboro;
+    border: none;
+    border-radius: 20px;
+}
+.signup_frame__input__item:focus {
+    outline: 2px solid var(--main-color);
+}
+.signup_frame__btn {
+    width: 80px;
+    height: 50px;
+    background-color: var(--main-color);
+    color: var(--secondary-color);
+    font-size: 1rem;
+}
+.signup_frame__btn:hover {
+    cursor: pointer;
+    background-color: var(--secondary-color);
+    color: var(--main-color);
+}
+
 /* signin page */
 .signin_frame {
     grid-template-rows: 1fr 4fr 1fr;
