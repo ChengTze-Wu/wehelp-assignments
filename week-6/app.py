@@ -5,10 +5,10 @@ from flask import session
 from flask import redirect, url_for
 from werkzeug.security import generate_password_hash, check_password_hash
 from mysqlConnector import account_query, account_create
+import configs
 
 app = Flask(__name__)
-
-app.secret_key = "jf8932fhuewifnd9o"
+app.config.from_object(configs.Production_config)
 
 @app.route("/", methods=['GET'])
 def index():
@@ -16,11 +16,11 @@ def index():
 
 @app.route("/signin/", methods=['POST'])
 def signin():
-    query_username = None
-    query_password = None
+    query_username = ""
+    query_password = ""
     username = request.form["username"]
     password = request.form["password"]
-    if account_query(username): 
+    if account_query(username):
         query_username = account_query(username)['username']
         query_password = account_query(username)['password']
     if username == "" or password == "":
@@ -62,4 +62,4 @@ def error():
     return render_template("error.html", message=message)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=3000)
+    app.run(port=3000)

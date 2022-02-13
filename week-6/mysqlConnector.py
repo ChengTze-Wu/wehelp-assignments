@@ -1,15 +1,10 @@
 import mysql.connector
-
-config = {
-    'user': 'root',
-    'password': 'root1234',
-    'database': 'website',
-    }
+import configs
 
 def account_query(username):
     queryData = {}
     
-    cnx = mysql.connector.connect(**config)
+    cnx = mysql.connector.connect(**configs.DB_config.dbinfo())
     cursor = cnx.cursor()
     
     query = ("SELECT name, username, password FROM member " 
@@ -29,7 +24,7 @@ def account_query(username):
 
 
 def account_create(name, username, passworrd):
-    cnx = mysql.connector.connect(**config)
+    cnx = mysql.connector.connect(**configs.DB_config.dbinfo())
     cursor = cnx.cursor()
     
     add_member = ("INSERT INTO member (name, username, password) "
