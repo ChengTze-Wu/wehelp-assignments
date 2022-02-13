@@ -1,0 +1,34 @@
+{% extends "base.html" %} {% block content %}
+
+<main class="main grid--center">
+    <form class="grid--center signup_frame" action="/signup/" method="post">
+        <h1 class="signup_frame__title">會員註冊</h1>
+        <div class="grid--center signup_frame__input">
+            <input
+                class="signup_frame__input__item"
+                type="text"
+                name="name"
+                id="name"
+                placeholder="姓名"
+                required
+            />
+            <input
+                class="signup_frame__input__item"
+                type="text"
+                name="username"
+                placeholder="帳號"
+                required
+            />
+            <input
+                class="signup_frame__input__item"
+                type="password"
+                name="password"
+                placeholder="密碼"
+                required
+            />
+        </div>
+        <button class="btn signup_frame__btn" type="submit">註冊</button>
+        <a class="btn return_btn" href="{{url_for('index')}}">返回</a>
+    </form>
+</main>
+{% endblock %}
