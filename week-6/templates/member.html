@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% block title %} | {{ message }}{% endblock %} {%
 block content %}
 <main class="main grid--center">
-    <h1 class="member_title">{{ message }}，歡迎登入</h1>
+    <h1 class="member_title">{{ message }}，你好</h1>
     <a class="flex--center btn member_btn" href="{{url_for('signout')}}">
         <span class="material-icons"> logout </span>
         登出系統
