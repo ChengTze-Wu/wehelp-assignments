@@ -1,6 +1,6 @@
 class Production_config:
-    ENV = 'development'
-    DEBUG = True
+    ENV = 'production'
+    DEBUG = False
     SECRET_KEY = b'A\xd5a\x141\xce\xca\x12\x82uc\xd8\xb4\x1a\xb6\xfb\xf2\xab\xbc\xf0\x16\xc3r\xc4'
 
 class DB_config:
