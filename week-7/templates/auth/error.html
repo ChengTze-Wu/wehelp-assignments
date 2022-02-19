@@ -1,0 +1,12 @@
+{% extends "base.html" %} {% block title %} | 登入失敗{% endblock %} {% block
+content %}
+<main class="main grid--center flex--vertical">
+    <span class="error_icon material-icons"> cancel </span>
+    <h1 class="error_title">失敗</h1>
+    <p>{{ message }}</p>
+    <a class="flex--center btn error_btn" href="{{url_for('auth.signin')}}">
+        <span class="material-icons"> keyboard_return </span>
+        返回首頁
+    </a>
+</main>
+{% endblock %}

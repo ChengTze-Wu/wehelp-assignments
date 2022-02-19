@@ -1,0 +1,54 @@
+{% extends "base.html" %} {% block title %} | {{ message }}{% endblock %} {%
+block content %}
+<main class="main grid--center">
+    <h1 class="member_title">{{ message }}，你好</h1>
+    <a class="flex--center btn member_btn" href="{{url_for('auth.signout')}}">
+        <span class="material-icons"> logout </span>
+        登出系統
+    </a>
+    <div class="member_query">
+        <input class="member_query__username" type="text" name="username" />
+        <button onclick="member_query()" type="submit">查詢</button>
+        <br />
+        <p class="show_member_query"></p>
+    </div>
+    <div class="member_update">
+        <input class="member_update__name" type="text" name="name" />
+        <button onclick="member_update()" type="submit">更新</button>
+        <br />
+        <p class="show_member_update"></p>
+    </div>
+</main>
+<script>
+    let show_member_query = document.querySelector(".show_member_query");
+    let show_member_update = document.querySelector(".show_member_update");
+    async function member_query() {
+        let username = document.querySelector(".member_query__username").value;
+        let response = await fetch(
+            "{{ url_for('api.get_member_json') }}" + "?username=" + username
+        );
+        let respnse_json = await response.json();
+        if (respnse_json["data"] != null) {
+            show_member_query.textContent = respnse_json["data"]["name"];
+        } else {
+            show_member_query.textContent = "無此會員";
+        }
+    }
+    async function member_update() {
+        let name = document.querySelector(".member_update__name").value;
+        let response = await fetch("{{ url_for('api.update_name') }}", {
+            method: "POST",
+            body: JSON.stringify({ name: name }),
+            headers: new Headers({
+                "Content-Type": "application/json",
+            }),
+        });
+        let respnse_json = await response.json();
+        if (respnse_json["error"]) {
+            show_member_update.textContent = "更新失敗";
+        } else if (respnse_json["ok"]) {
+            show_member_update.textContent = "更新成功";
+        }
+    }
+</script>
+{% endblock %}
