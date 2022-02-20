@@ -26,8 +26,8 @@ def account_query(username):
 
 
 def account_create(name, username, passworrd):
-    cursor = cnx.cursor()
     cnx = mysql.connector.connect(pool_name = "pool")
+    cursor = cnx.cursor()
     add_member = ("INSERT INTO member (name, username, password) "
                   "VALUES (%s, %s, %s)")
     data = (name, username, passworrd)
@@ -39,8 +39,8 @@ def account_create(name, username, passworrd):
     
 
 def account_name_update(name, username):
-    cursor = cnx.cursor()
     cnx = mysql.connector.connect(pool_name = "pool")
+    cursor = cnx.cursor()
     update_member_name = ("UPDATE member "
                         "SET name = %s "
                         "WHERE username = %s")
