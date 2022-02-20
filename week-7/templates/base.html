@@ -16,7 +16,10 @@
         <title>會員系統{% block title %}{% endblock %}</title>
     </head>
     <body>
-        <header class="header"></header>
-        {% block content %}{% endblock %}
+        <header class="header flex--center">
+            {% block header %}{% endblock %}
+        </header>
+        <main class="main grid--center">{% block main %}{% endblock %}</main>
+        {% block script %}{% endblock %}
     </body>
 </html>

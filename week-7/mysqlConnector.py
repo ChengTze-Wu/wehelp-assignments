@@ -3,7 +3,7 @@ from config import DB
 
 def account_query(username):
     queryData = {}
-    cnx = mysql.connector.connect(**DB.dbinfo())
+    cnx = mysql.connector.connect(pool_name = "pool", pool_size = 10, **DB.dbinfo())
     cursor = cnx.cursor()
     
     query = ("SELECT id, name, username, password FROM member " 
@@ -24,7 +24,7 @@ def account_query(username):
 
 
 def account_create(name, username, passworrd):
-    cnx = mysql.connector.connect(**DB.dbinfo())
+    cnx = mysql.connector.connect(pool_name = "pool", pool_size = 10, **DB.dbinfo())
     cursor = cnx.cursor()
     
     add_member = ("INSERT INTO member (name, username, password) "
@@ -38,7 +38,7 @@ def account_create(name, username, passworrd):
     
 
 def account_name_update(name, username):
-    cnx = mysql.connector.connect(**DB.dbinfo())
+    cnx = mysql.connector.connect(pool_name = "pool", pool_size = 10, **DB.dbinfo())
     
     cursor = cnx.cursor()
     

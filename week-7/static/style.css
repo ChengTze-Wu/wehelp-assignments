@@ -35,6 +35,12 @@ body {
   align-items: center;
 }
 
+.flex--split {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .grid--center {
   display: grid;
   justify-items: center;
@@ -43,7 +49,7 @@ body {
 
 .grid--split {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 0.05fr 1fr;
 }
 
 .btn {
@@ -60,6 +66,7 @@ body {
 
 /* header */
 .header {
+  display: flex;
   height: 56px;
   /* border-bottom: 2px var(--main-color) solid; */
   background-color: var(--main-color);
@@ -171,17 +178,67 @@ body {
   color: var(--secondary-color);
 }
 
-.member_icon {
-  font-size: 3rem;
-  color: var(--main-color);
+.member_header {
+  width: 90%;
+}
+.member_header .member_title {
+  color: var(--secondary-color);
 }
 
-.member_title {
+.signout_icon .signout_icon__btn {
+  color: var(--secondary-color);
+}
+.signout_icon .signout_icon__btn:hover {
   color: var(--main-color);
+  color: #c7c5c0;
 }
 
-.member_btn {
-  margin-top: 30px;
+.grid_api_container {
+  border: 2px solid var(--main-color);
+  border-radius: 20px;
+}
+.grid_api_container .member_api {
+  display: grid;
+  height: 300px;
+  grid-template-rows: 1fr 2fr 1fr 1fr;
+  justify-items: center;
+}
+.grid_api_container .member_api .member_api__title {
+  font-size: 1.8rem;
+  color: var(--main-color);
+  align-self: center;
+}
+.grid_api_container .member_api .show_member_data {
+  align-self: center;
+  font-size: 1.2rem;
+  color: #302d2d;
+}
+.grid_api_container .member_api .mamber_btn {
+  font-size: 1rem;
+  background-color: var(--main-color);
+  color: var(--secondary-color);
+  margin-bottom: 8px;
+  width: 90%;
+}
+.grid_api_container .member_api .mamber_btn:hover {
+  background-color: var(--secondary-color);
+  color: var(--main-color);
+  cursor: pointer;
+}
+.grid_api_container .member_api .member_api__input {
+  background-color: gainsboro;
+  border: 1px solid var(--main-color);
+  border-radius: 20px;
+  height: 50px;
+  width: 90%;
+  text-align: center;
+}
+.grid_api_container .vl {
+  border-left: 1.5px solid var(--main-color);
+  border-radius: 5px;
+  height: 85%;
+  justify-self: center;
+  align-self: center;
 }
 
 .error_icon {
