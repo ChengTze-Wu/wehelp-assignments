@@ -1,15 +1,16 @@
 import mysql.connector
 from config import DB
 
+cnx = mysql.connector.connect(pool_name = "pool",
+                              pool_size = 10,
+                              **DB.dbinfo())
 
 def account_query(username):
     queryData = {}
-    cnx = mysql.connector.connect(**DB.dbinfo())
+    cnx = mysql.connector.connect(pool_name = "pool")
     cursor = cnx.cursor()
-    
     query = ("SELECT id, name, username, password FROM member " 
             "WHERE username = %s")
-
     data = (username,)
     cursor.execute(query, data)
     
@@ -25,9 +26,8 @@ def account_query(username):
 
 
 def account_create(name, username, passworrd):
-    cnx = mysql.connector.connect(**DB.dbinfo())
     cursor = cnx.cursor()
-    
+    cnx = mysql.connector.connect(pool_name = "pool")
     add_member = ("INSERT INTO member (name, username, password) "
                   "VALUES (%s, %s, %s)")
     data = (name, username, passworrd)
@@ -39,10 +39,8 @@ def account_create(name, username, passworrd):
     
 
 def account_name_update(name, username):
-    cnx = mysql.connector.connect(**DB.dbinfo())
-    
     cursor = cnx.cursor()
-    
+    cnx = mysql.connector.connect(pool_name = "pool")
     update_member_name = ("UPDATE member "
                         "SET name = %s "
                         "WHERE username = %s")
