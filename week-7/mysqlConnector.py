@@ -1,10 +1,10 @@
 import mysql.connector
 from config import DB
 
-cnx = mysql.connector.connect(**DB.dbinfo())
 
 def account_query(username):
     queryData = {}
+    cnx = mysql.connector.connect(**DB.dbinfo())
     cursor = cnx.cursor()
     
     query = ("SELECT id, name, username, password FROM member " 
